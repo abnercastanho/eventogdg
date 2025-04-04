@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscreva-se - GDG Unicesumar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --google-gray: #F1F1F1;
+            --google-dark-gray: #5F6368;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #202124;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header Style */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-header {
+            background-color: var(--google-gray);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            color: #202124;
+        }
+        
+        .btn-header:hover {
+            background-color: #e8e8e8;
+        }
+        
+        /* Terminal Style */
+        #terminal-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        #terminal {
+            width: 100%;
+            max-width: 800px;
+            background-color: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        #terminal-header {
+            background-color: #3c3c3c;
+            padding: 8px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .terminal-btn.red { background-color: #ff5f56; }
+        .terminal-btn.yellow { background-color: #ffbd2e; }
+        .terminal-btn.green { background-color: #27c93f; }
+        
+        #terminal-title {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+        
+        #terminal-content {
+            padding: 20px;
+        }
+        
+        #output {
+            min-height: 200px;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+        }
+        
+        #input-line {
+            display: flex;
+            align-items: center;
+        }
+        
+        #prompt {
+            margin-right: 10px;
+            color: var(--google-blue);
+        }
+        
+        #command-input {
+            background-color: transparent;
+            border: none;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            flex-grow: 1;
+            outline: none;
+            caret-color: #00ff00;
+        }
+        
+        /* Message Styles */
+        .success {
+            color: var(--google-green);
+        }
+        
+        .error {
+            color: var(--google-red);
+        }
+        
+        .warning {
+            color: var(--google-yellow);
+        }
+        
+        .info {
+            color: var(--google-blue);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Footer Style */
+        footer {
+            background-color: white;
+            padding: 15px 20px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+            color: var(--google-dark-gray);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .social-links a {
+            color: var(--google-dark-gray);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--google-blue);
+        }
+        
+        .footer-info {
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        /* FormSubmit hidden form */
+        #hidden-form {
+            display: none;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="img/logo-gdg.svg" alt="GDG Logo">
+            </div>
+            <span>GDG Unicesumar - Terminal de Cadastro</span>
+        </div>
+        <div class="header-buttons">
+            <a href="index.html" class="btn-header">INÍCIO</a>
+            <a href="eventos.html" class="btn-header">EVENTOS</a>
+            <a href="sobre.html" class="btn-header">SOBRE</a>
+        </div>
+    </header>
+    
+    <div id="terminal-container">
+        <div id="terminal">
+            <div id="terminal-header">
+                <div class="terminal-btn red"></div>
+                <div class="terminal-btn yellow"></div>
+                <div class="terminal-btn green"></div>
+                <div id="terminal-title">gdg@unicesumar:~/cadastro</div>
+            </div>
+            
+            <div id="terminal-content">
+                <div id="output">
+                    > Sistema de cadastro GDG Unicesumar inicializando...
+                    > Digite <span class="info">start</span> para começar o cadastro
+                </div>
+                
+                <div id="input-line">
+                    <span id="prompt">$</span>
+                    <input type="text" id="command-input" autofocus>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Formulário oculto para o FormSubmit -->
+    <form id="hidden-form" action="https://formsubmit.co/unicesumar.gdg@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Novo cadastro GDG Unicesumar (Terminal)">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="http://localhost:8080/DEV/obrigado.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" value="Obrigado por se inscrever no GDG Unicesumar via Terminal! Confirmamos o recebimento do seu cadastro. Entraremos em contato em breve com mais informações sobre o evento. Acesse nosso site: https://gdg.community.dev/">
+        
+        <input type="hidden" id="form-nome" name="nome">
+        <input type="hidden" id="form-idade" name="idade">
+        <input type="hidden" id="form-cpf" name="cpf">
+        <input type="hidden" id="form-email" name="email">
+        <input type="hidden" id="form-expectativas" name="expectativas">
+        <input type="hidden" id="form-newsletter" name="newsletter" value="Sim">
+    </form>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-info">
+            <p>GDG Unicesumar Londrina - 2023</p>
+            <p>contato@gdgunicesumar.com</p>
+            <p>Unicesumar Londrina - Av. Santa Mônica, 450</p>
+        </div>
+    </footer>
+
+    <script>
+        const commandInput = document.getElementById('command-input');
+        const output = document.getElementById('output');
+        
+        // Elementos do formulário oculto
+        const hiddenForm = document.getElementById('hidden-form');
+        const formNome = document.getElementById('form-nome');
+        const formIdade = document.getElementById('form-idade');
+        const formCpf = document.getElementById('form-cpf');
+        const formEmail = document.getElementById('form-email');
+        const formExpectativas = document.getElementById('form-expectativas');
+        const formNewsletter = document.getElementById('form-newsletter');
+        
+        // Campos do formulário no terminal
+        const formSteps = [
+            { 
+                field: 'nome', 
+                question: 'Digite seu nome completo: ', 
+                type: 'text',
+                icon: 'fas fa-user'
+            },
+            { 
+                field: 'idade', 
+                question: 'Digite sua idade (16-100): ', 
+                type: 'number',
+                icon: 'fas fa-birthday-cake',
+                validate: (value) => {
+                    const age = parseInt(value);
+                    return age >= 16 && age <= 100;
+                },
+                error: 'Idade deve estar entre 16 e 100 anos'
+            },
+            { 
+                field: 'cpf', 
+                question: 'Digite seu CPF (formato: 000.000.000-00): ', 
+                type: 'text',
+                icon: 'fas fa-id-card',
+                validate: (value) => {
+                    return /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(value);
+                },
+                error: 'Formato inválido. Use 000.000.000-00'
+            },
+            { 
+                field: 'email', 
+                question: 'Digite seu e-mail: ', 
+                type: 'email',
+                icon: 'fas fa-envelope',
+                validate: (value) => {
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                },
+                error: 'E-mail inválido'
+            },
+            { 
+                field: 'expectativas', 
+                question: 'O que você espera do evento? (Descreva suas expectativas): ', 
+                type: 'textarea',
+                icon: 'fas fa-comment-alt'
+            },
+            { 
+                field: 'newsletter', 
+                question: 'Deseja receber informações sobre futuros eventos? (S/N): ', 
+                type: 'boolean',
+                icon: 'fas fa-bell'
+            }
+        ];
+        
+        const formData = {};
+        let currentStep = 0;
+        let isInForm = false;
+        
+        // Máscara de CPF
+        function applyCpfMask(value) {
+            value = value.replace(/\D/g, '');
+            
+            if(value.length > 3) value = value.replace(/^(\d{3})/, '$1.');
+            if(value.length > 7) value = value.replace(/^(\d{3})\.(\d{3})/, '$1.$2.');
+            if(value.length > 11) value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})/, '$1.$2.$3-');
+            
+            return value.substring(0, 14);
+        }
+        
+        // Processar comandos
+        commandInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const command = commandInput.value.trim();
+                commandInput.value = '';
+                
+                if (isInForm) {
+                    processFormInput(command);
+                } else {
+                    processCommand(command);
+                }
+            }
+        });
+        
+        function processCommand(command) {
+            appendToOutput(`$ ${command}`);
+            
+            switch(command.toLowerCase()) {
+                case 'help':
+                    showHelp();
+                    break;
+                case 'start':
+                    startRegistration();
+                    break;
+                case 'clear':
+                    clearTerminal();
+                    break;
+                case 'exit':
+                    appendToOutput('> Sistema encerrado. Até logo!', 'info');
+                    setTimeout(() => {
+                        output.innerHTML = '';
+                        appendToOutput('> Sistema reinicializado...');
+                        appendToOutput('> Digite <span class="info">start</span> para começar o cadastro');
+                    }, 2000);
+                    break;
+                default:
+                    appendToOutput('> Comando não reconhecido. Digite <span class="info">help</span> para ver os comandos disponíveis.', 'error');
+            }
+        }
+        
+        function processFormInput(input) {
+            if (currentStep < formSteps.length) {
+                const currentField = formSteps[currentStep];
+                
+                // Validação
+                if (currentField.validate && !currentField.validate(input)) {
+                    appendToOutput(`> ERRO: ${currentField.error}`, 'error');
+                    return;
+                }
+                
+                // Processamento especial para alguns campos
+                if (currentField.field === 'newsletter') {
+                    formData[currentField.field] = input.toLowerCase() === 's' ? 'Sim' : 'Não';
+                } else {
+                    formData[currentField.field] = input;
+                }
+                
+                // Mostrar ícone e resposta formatada
+                appendToOutput(`<i class="${currentField.icon}"></i> ${input}`, 'success');
+                
+                currentStep++;
+                
+                if (currentStep < formSteps.length) {
+                    askQuestion(formSteps[currentStep]);
+                } else {
+                    completeRegistration();
+                }
+            }
+        }
+        
+        function askQuestion(step) {
+            let question = `> ${step.question}`;
+            if (step.icon) {
+                question = `<i class="${step.icon}"></i> ${question}`;
+            }
+            appendToOutput(question, 'info');
+            isInForm = true;
+        }
+        
+        function startRegistration() {
+            appendToOutput('> Iniciando processo de cadastro GDG Unicesumar...', 'info');
+            appendToOutput('> Preencha os campos solicitados:', 'info');
+            currentStep = 0;
+            askQuestion(formSteps[currentStep]);
+        }
+        
+        function completeRegistration() {
+            appendToOutput('> Processando dados...', 'info');
+            
+            // Preencher formulário oculto
+            formNome.value = formData.nome;
+            formIdade.value = formData.idade;
+            formCpf.value = formData.cpf;
+            formEmail.value = formData.email;
+            formExpectativas.value = formData.expectativas;
+            formNewsletter.value = formData.newsletter || 'Sim';
+            
+            // Enviar formulário
+            hiddenForm.submit();
+            
+            // Mostrar confirmação
+            setTimeout(() => {
+                appendToOutput('> Cadastro concluído com sucesso!', 'success');
+                appendToOutput('> Dados registrados:', 'info');
+                
+                for (const [key, value] of Object.entries(formData)) {
+                    appendToOutput(`  ${key}: ${value}`);
+                }
+                
+                appendToOutput('> Obrigado por se cadastrar no GDG Unicesumar!', 'info');
+                appendToOutput('> Você receberá um e-mail de confirmação em breve.', 'info');
+                appendToOutput('> Digite <span class="info">exit</span> para sair ou <span class="info">start</span> para novo cadastro');
+                isInForm = false;
+                currentStep = 0;
+            }, 1500);
+        }
+        
+        function showHelp() {
+            appendToOutput('> Comandos disponíveis:', 'info');
+            appendToOutput('  <span class="info">help</span> - Mostra esta ajuda');
+            appendToOutput('  <span class="info">start</span> - Inicia o processo de cadastro');
+            appendToOutput('  <span class="info">clear</span> - Limpa o terminal');
+            appendToOutput('  <span class="info">exit</span> - Reinicia o terminal');
+        }
+        
+        function clearTerminal() {
+            output.innerHTML = '';
+            appendToOutput('> Terminal limpo. Digite <span class="info">start</span> para começar o cadastro');
+        }
+        
+        function appendToOutput(text, className = '') {
+            const line = document.createElement('div');
+            if (className) {
+                line.className = className;
+            }
+            line.innerHTML = text;
+            output.appendChild(line);
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        // Efeito de digitação inicial
+        const initialText = [
+            '> Sistema GDG Unicesumar inicializando...',
+            '> Conectando ao servidor...',
+            '> Carregando módulos de cadastro...',
+            '> Sistema pronto para uso.'
+        ];
+        
+        let initialLine = 0;
+        let initialChar = 0;
+        let initialInterval;
+        
+        function typeInitialText() {
+            if (initialLine < initialText.length) {
+                if (initialChar === 0) {
+                    output.innerHTML += '<div></div>';
+                }
+                
+                const lines = output.querySelectorAll('div');
+                const currentLine = lines[lines.length - 1];
+                
+                if (initialChar < initialText[initialLine].length) {
+                    currentLine.innerHTML += initialText[initialLine].charAt(initialChar);
+                    initialChar++;
+                } else {
+                    initialLine++;
+                    initialChar = 0;
+                }
+            } else {
+                clearInterval(initialInterval);
+                output.innerHTML += '<div>> Digite <span class="info">help</span> para ver os comandos disponíveis</div>';
+            }
+        }
+        
+        // Inicia o efeito de digitação
+        setTimeout(() => {
+            output.innerHTML = '';
+            initialInterval = setInterval(typeInitialText, 50);
+        }, 500);
+        
+        // Aplicar máscara de CPF durante a digitação no terminal
+        commandInput.addEventListener('input', function(e) {
+            if (isInForm && formSteps[currentStep].field === 'cpf') {
+                const cursorPos = e.target.selectionStart;
+                const cleanedValue = e.target.value.replace(/\D/g, '');
+                const maskedValue = applyCpfMask(cleanedValue);
+                
+                e.target.value = maskedValue;
+                
+                // Manter a posição do cursor
+                if (cursorPos === 3 || cursorPos === 7) {
+                    e.target.setSelectionRange(cursorPos + 1, cursorPos + 1);
+                } else if (cursorPos === 11) {
+                    e.target.setSelectionRange(cursorPos + 2, cursorPos + 2);
+                } else {
+                    e.target.setSelectionRange(cursorPos, cursorPos);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
