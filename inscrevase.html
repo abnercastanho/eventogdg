@@ -6,6 +6,13 @@
     <title>Inscreva-se - GDG Unicesumar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('font.pixelada/Minecraft.ttf') format('truetype');
+             font-weight: normal;
+            font-style: normal;
+        }
         :root {
             --google-blue: #4285F4;
             --google-red: #EA4335;
@@ -28,7 +35,7 @@
         
         /* Header Style */
         header {
-            background-color: white;
+            background-color: #1e1c1c;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 10px 20px;
             display: flex;
@@ -39,6 +46,12 @@
         .logo-container {
             display: flex;
             align-items: center;
+            color: #00ff00;
+            font-family: 'Minecraft', 'Courier New', monospace; 
+            font-size: 16px;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
+            letter-spacing: 1px; 
+            
         }
         
         .logo img {
@@ -61,13 +74,17 @@
             cursor: pointer;
             transition: background-color 0.3s;
             text-decoration: none;
-            color: #202124;
+            color: #202124; 
+            font-family: 'Minecraft', 'Courier New', monospace; 
+            font-size: 16px;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
+            letter-spacing: 1px;
         }
         
         .btn-header:hover {
-            background-color: #e8e8e8;
-        }
-        
+            background-color: #00ff00;
+        }   
+
         /* Terminal Style */
         #terminal-container {
             flex: 1;
@@ -174,14 +191,17 @@
             50% { opacity: 0; }
         }
         
-        /* ... (mantenha todos os estilos existentes) ... */
 
-        /* Footer Style - Versão com redes sociais verticais */
+        /* Footer Style */
 footer {
     background-color: #1e1c1c;
     padding: 30px 20px 15px;
     border-top: 1px solid #030303;
     color: #e0e0e0;
+    font-family: 'Minecraft', 'Courier New', monospace; 
+    font-size: 16px;
+    text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
+    letter-spacing: 1px;
 }
 
 .footer-grid {
@@ -208,7 +228,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 30px;
     font-size: 14px;
 }
 
@@ -285,7 +305,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-        /* Adicione isso na seção de estilos */
+       
         #bg-video {
     position: fixed;
     top: 0;
@@ -377,7 +397,11 @@ footer {
         <div class="footer-grid">
             <!-- Seção 1: E-mail -->
             <div class="footer-section">
-                <h3 class="footer-title">E-mail</h3>
+                <h3 class="footer-title">E-mails</h3>
+                <div class="footer-content">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contato@gdgunicesumar.com">contato@gdgunicesumar.com</a>
+                </div>
                 <div class="footer-content">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:contato@gdgunicesumar.com">contato@gdgunicesumar.com</a>
@@ -417,7 +441,7 @@ footer {
                 <h3 class="footer-title">Endereço</h3>
                 <div class="footer-content">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Av. Santa Mônica, 450<br>Londrina - PR</span>
+                    <span><a href="https://www.google.com/maps/place/Av.+Santa+M%C3%B4nica,+460+-+Franca,+Londrina+-+PR,+86027-610/@-23.3036774,-51.1409958,17z/data=!3m1!4b1!4m5!3m4!1s0x94eb448101832ab1:0x4f0982051d426b8c!8m2!3d-23.3036774!4d-51.1409958?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D">Av. Santa Mônica, 450<br>Londrina - PR</a></span>
                 </div>
             </div>
         </div>
