@@ -43,18 +43,185 @@
             </div>
         </section>
     </main>
-    
+
     <footer>
-        <div class="social-links">
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <div class="footer-grid">
+            <!-- Seção 1: E-mail -->
+            <div class="footer-section">
+                <h3 class="footer-title">E-mails</h3>
+                <div class="footer-content">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contato@gdgunicesumar.com">contato@gdgunicesumar.com</a>
+                </div>
+                <div class="footer-content">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contato@gdgunicesumar.com">contato@gdgunicesumar.com</a>
+                </div>
+            </div>
+    
+            <!-- Seção 2: Contatos -->
+            <div class="footer-section">
+                <h3 class="footer-title">Contatos</h3>
+                <div class="footer-content">
+                    <i class="fas fa-phone"></i>
+                    <span>(43) 9999-9999</span>
+                </div>
+                <div class="footer-content">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/554399999999">(43) 99999-9999</a>
+                </div>
+            </div>
+    
+            <!-- Seção 3: Redes Sociais -->
+            <div class="footer-section">
+                <h3 class="footer-title">Redes Sociais</h3>
+                <div class="social-links-vertical">
+                    <div class="social-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </div>
+                    <div class="social-item">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Seção 4: Endereço -->
+            <div class="footer-section">
+                <h3 class="footer-title">Endereço</h3>
+                <div class="footer-content">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span><a href="https://www.google.com/maps/place/Av.+Santa+M%C3%B4nica,+460+-+Franca,+Londrina+-+PR,+86027-610/@-23.3036774,-51.1409958,17z/data=!3m1!4b1!4m5!3m4!1s0x94eb448101832ab1:0x4f0982051d426b8c!8m2!3d-23.3036774!4d-51.1409958?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D">Av. Santa Mônica, 450<br>Londrina - PR</a></span>
+                </div>
+            </div>
         </div>
-        <div class="footer-info">
-            <p>GDG Unicesumar Londrina - 2023</p>
-            <p>contato@gdgunicesumar.com</p>
+    
+        <div class="footer-copyright">
+            <p>GDG Unicesumar Londrina - 2023 © Todos os direitos reservados</p>
         </div>
     </footer>
+
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('font.pixelada/Minecraft.ttf') format('truetype');
+             font-weight: normal;
+            font-style: normal;
+        }
+
+        footer {
+    background-color: #1e1c1c;
+    padding: 30px 20px 15px;
+    border-top: 1px solid #030303;
+    color: #e0e0e0;
+    font-family: 'Minecraft', 'Courier New', monospace; 
+    font-size: 16px;
+    text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
+    letter-spacing: 1px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    color: #00ff00;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Estilo específico para as redes sociais verticais */
+.social-links-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+
+.social-item i {
+    color: var(--google-yellow);
+    width: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.social-item span {
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.social-item:hover {
+    transform: translateX(5px);
+}
+
+.social-item:hover i {
+    color: var(--google-blue);
+}
+
+/* Estilos comuns */
+.footer-content i {
+    color: var(--google-yellow);
+    width: 20px;
+    text-align: center;
+}
+
+.footer-content a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-content a:hover {
+    color: var(--google-blue);
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #999;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+        
+    </style>
 </body>
 </html>
