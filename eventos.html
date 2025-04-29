@@ -10,21 +10,80 @@
     <style>
         /* Estilos gerais */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Minecraft', 'Courier New', monospace;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #1e1c1c;
+            color: #e0e0e0;
         }
 
-        nav a {
-            color: white;
-            margin: 0 10px;
+        /* Header Style */
+        header {
+            background-color: #1e1c1c;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #00ff00;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-header {
+            background-color: var(--google-gray);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-family: 'Minecraft', 'Courier New', monospace;
+            font-size: 16px;
+            cursor: pointer;
             text-decoration: none;
+            color: #202124;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .btn-header:hover {
+            background-color: #00ff00;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .btn-sobre {
+            background-color: #00ff00;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-family: 'Minecraft', 'Courier New', monospace;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #202124;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .btn-sobre:hover {
+            background-color: var(--google-gray);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #00ff00;
+            font-family: 'Minecraft', 'Courier New', monospace; 
+            font-size: 16px;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
+            letter-spacing: 1px;         
+        }
+
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('font.pixelada/Minecraft.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
         /* Estilos da página de Eventos */
@@ -38,199 +97,197 @@
         .eventos-container h2 {
             font-size: 2rem;
             margin-bottom: 2rem;
-            color: #2c3e50;
+            color: #00ff00;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3);
         }
 
         .evento-card {
-            background: white;
+            background: #252323;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.1);
             margin: 1rem auto;
             padding: 1rem;
             max-width: 400px;
             text-align: left;
+            border: 1px solid #00ff00;
         }
 
         .evento-card img {
             width: 100%;
             border-radius: 8px;
+            border: 1px solid #00ff00;
         }
 
         .evento-card h3 {
-            color: #e74c3c;
+            color: #00ff00;
             margin: 1rem 0;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.2);
         }
 
         .evento-card .data, .evento-card .local {
             font-weight: bold;
             margin: 0.5rem 0;
+            color: #e0e0e0;
+        }
+
+        .evento-card .data i, .evento-card .local i {
+            color: #00ff00;
+            margin-right: 5px;
+        }
+
+        .evento-card .descricao {
+            color: #e0e0e0;
+            margin: 1rem 0;
         }
 
         .botao-inscrever {
             display: inline-block;
-            background-color: #e74c3c;
-            color: white;
+            background-color: #00ff00;
+            color: #1e1c1c;
             padding: 0.5rem 1rem;
             border-radius: 4px;
             text-decoration: none;
             margin-top: 1rem;
+            font-family: 'Minecraft', 'Courier New', monospace;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3);
+            transition: all 0.3s;
         }
 
         .botao-inscrever:hover {
-            background-color: #c0392b;
+            background-color: #1e1c1c;
+            color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
         footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            width: 100%;
+            background-color: #1e1c1c;
+            padding: 30px 20px 15px;
+            border-top: 1px solid #00ff00;
+            color: #e0e0e0;
+            font-family: 'Minecraft', 'Courier New', monospace; 
+            font-size: 16px;
+            text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
+            letter-spacing: 1px;
         }
 
-/* Responsividade (opcional) */
-@media (max-width: 768px) {
-    .evento-card {
-    max-width: 90%;
-         }
-}
- @font-face {
-    font-family: 'Minecraft';
-    src: url('font.pixelada/Minecraft.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-footer {
-    background-color: #1e1c1c;
-    padding: 30px 20px 15px;
-    border-top: 1px solid #030303;
-    color: #e0e0e0;
-    font-family: 'Minecraft', 'Courier New', monospace; 
-    font-size: 16px;
-    text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
-    letter-spacing: 1px;
-}
+        .footer-section {
+            margin-bottom: 20px;
+        }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .footer-title {
+            color: #00ff00;
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
 
-.footer-section {
-    margin-bottom: 20px;
-}
+        .footer-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
 
-.footer-title {
-    color: #00ff00;
-    font-size: 18px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-}
+        /* Estilo específico para as redes sociais verticais */
+        .social-links-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.footer-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    font-size: 14px;
-}
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
 
-/* Estilo específico para as redes sociais verticais */
-.social-links-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+        .social-item i {
+            color: var(--google-yellow);
+            width: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
 
-.social-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    padding: 5px 0;
-}
+        .social-item span {
+            color: #e0e0e0;
+            font-size: 14px;
+        }
 
-.social-item i {
-    color: var(--google-yellow);
-    width: 20px;
-    text-align: center;
-    font-size: 18px;
-}
+        .social-item:hover {
+            transform: translateX(5px);
+        }
 
-.social-item span {
-    color: #e0e0e0;
-    font-size: 14px;
-}
+        .social-item:hover i {
+            color: var(--google-blue);
+        }
 
-.social-item:hover {
-    transform: translateX(5px);
-}
+        /* Estilos comuns */
+        .footer-content i {
+            color: var(--google-yellow);
+            width: 20px;
+            text-align: center;
+        }
 
-.social-item:hover i {
-    color: var(--google-blue);
-}
+        .footer-content a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-/* Estilos comuns */
-.footer-content i {
-    color: var(--google-yellow);
-    width: 20px;
-    text-align: center;
-}
+        .footer-content a:hover {
+            color: var(--google-blue);
+        }
 
-.footer-content a {
-    color: #e0e0e0;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .footer-copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            font-size: 13px;
+            color: #999;
+        }
 
-.footer-content a:hover {
-    color: var(--google-blue);
-}
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --google-gray: #F1F1F1;
+            --google-dark-gray: #5F6368;
+        }
 
-.footer-copyright {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid #333;
-    font-size: 13px;
-    color: #999;
-}
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .evento-card {
+                max-width: 90%;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-:root {
-    --google-blue: #4285F4;
-    --google-red: #EA4335;
-    --google-yellow: #FBBC05;
-    --google-green: #34A853;
-    --google-gray: #F1F1F1;
-    --google-dark-gray: #5F6368;
-}
-
-.logo-container {
-        display: flex;
-        align-items: center;
-        color: #00ff00;
-        font-family: 'Minecraft', 'Courier New', monospace; 
-        font-size: 16px;
-        text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3); 
-        letter-spacing: 1px;     
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -239,12 +296,12 @@ footer {
     <header>
         <div class="logo">
             <img src="img/logo-gdg.svg" alt="GDG Logo">
+            <span>GDG Unicesumar - Eventos</span>
         </div>
         <div class="header-buttons">
             <a href="eventos.html" class="btn-header">EVENTOS</a>
             <a href="sobre.html" class="btn-header">SOBRE</a>
             <a href="inscrevase.html" class="btn-sobre">INSCREVA-SE</a>
-           
         </div>
     </header>
 
@@ -256,8 +313,8 @@ footer {
         <div class="evento-card">
             <img src="https://via.placeholder.com/400x200?text=Imagem+Evento+1" alt="Evento 1">
             <h3>Workshop de Marketing Digital</h3>
-            <p class="data">📅 15 de Outubro de 2023</p>
-            <p class="local">📍 Local: Centro de Convenções</p>
+            <p class="data"><i class="fas fa-calendar-alt"></i> 15 de Outubro de 2023</p>
+            <p class="local"><i class="fas fa-map-marker-alt"></i> Local: Centro de Convenções</p>
             <p class="descricao">Aprenda estratégias avançadas de marketing com especialistas do setor.</p>
             <a href="#" class="botao-inscrever">INSCREVA-SE</a>
         </div>
@@ -266,8 +323,8 @@ footer {
         <div class="evento-card">
             <img src="https://via.placeholder.com/400x200?text=Imagem+Evento+2" alt="Evento 2">
             <h3>Festival de Música</h3>
-            <p class="data">📅 20 de Novembro de 2023</p>
-            <p class="local">📍 Local: Parque da Cidade</p>
+            <p class="data"><i class="fas fa-calendar-alt"></i> 20 de Novembro de 2023</p>
+            <p class="local"><i class="fas fa-map-marker-alt"></i> Local: Parque da Cidade</p>
             <p class="descricao">Uma noite com as melhores bandas da região e gastronomia local.</p>
             <a href="#" class="botao-inscrever">INSCREVA-SE</a>
         </div>
