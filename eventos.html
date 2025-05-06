@@ -101,13 +101,20 @@
             text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.3);
         }
 
+        .eventos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
         .evento-card {
             background: #252323;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 255, 0, 0.1);
-            margin: 1rem auto;
             padding: 1rem;
-            max-width: 400px;
+            width: calc(50% - 20px);
+            min-width: 300px;
             text-align: left;
             border: 1px solid #00ff00;
         }
@@ -275,7 +282,8 @@
             }
             
             .evento-card {
-                max-width: 90%;
+                width: 100%;
+                max-width: 400px;
             }
             
             header {
@@ -287,6 +295,11 @@
         @media (max-width: 480px) {
             .footer-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .eventos-grid {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -308,24 +321,26 @@
     <main class="eventos-container">
         <h2>PRÓXIMOS EVENTOS</h2>
         
-        <!-- Card de Evento 1 -->
-        <div class="evento-card">
-            <img src="https://via.placeholder.com/400x200?text=Imagem+Evento+1" alt="Evento 1">
-            <h3>Workshop de Marketing Digital</h3>
-            <p class="data"><i class="fas fa-calendar-alt"></i> 15 de Outubro de 2023</p>
-            <p class="local"><i class="fas fa-map-marker-alt"></i> Local: Centro de Convenções</p>
-            <p class="descricao">Aprenda estratégias avançadas de marketing com especialistas do setor.</p>
-            <a href="#" class="botao-inscrever">INSCREVA-SE</a>
-        </div>
+        <div class="eventos-grid">
+            <!-- Card de Evento 1 -->
+            <div class="evento-card">
+                <img src="img/MEETUP 2026.webp" alt="Evento 1">
+                <h3>Workshop de Marketing Digital</h3>
+                <p class="data"><i class="fas fa-calendar-alt"></i> 15 de Outubro de 2023</p>
+                <p class="local"><i class="fas fa-map-marker-alt"></i> Local: Centro de Convenções</p>
+                <p class="descricao">Aprenda estratégias avançadas de marketing com especialistas do setor.</p>
+                <a href="inscrevase.html" class="botao-inscrever">INSCREVA-SE</a>
+            </div>
 
-        <!-- Card de Evento 2 -->
-        <div class="evento-card">
-            <img src="https://via.placeholder.com/400x200?text=Imagem+Evento+2" alt="Evento 2">
-            <h3>Festival de Música</h3>
-            <p class="data"><i class="fas fa-calendar-alt"></i> 20 de Novembro de 2023</p>
-            <p class="local"><i class="fas fa-map-marker-alt"></i> Local: Parque da Cidade</p>
-            <p class="descricao">Uma noite com as melhores bandas da região e gastronomia local.</p>
-            <a href="#" class="botao-inscrever">INSCREVA-SE</a>
+            <!-- Card de Evento 2 -->
+            <div class="evento-card">
+                <img src="img/GDG Londrina Meetup - Fev-2024.webp" alt="Evento 2">
+                <h3>Programação Web</h3>
+                <p class="data"><i class="fas fa-calendar-alt"></i> 20 de Novembro de 2023</p>
+                <p class="local"><i class="fas fa-map-marker-alt"></i> Local: Parque da Cidade</p>
+                <p class="descricao">Uma noite com as melhores bandas da região e gastronomia local.</p>
+                <a href="inscrevase.html" class="botao-inscrever">INSCREVA-SE</a>
+            </div>
         </div>
     </main>
 
